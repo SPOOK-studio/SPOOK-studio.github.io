@@ -122,6 +122,31 @@ section h2{font-size:clamp(32px,4.8vw,52px);margin-top:10px}
 .src{color:var(--dim);font-size:12px;margin:18px 2px 0}
 .pro{font:700 9.5px var(--mono);letter-spacing:.12em;color:#F0ABFC;text-shadow:0 0 8px rgba(240,171,252,.8)}
 
+/* ---------- auto mix ---------- */
+.am{display:grid;grid-template-columns:1fr 1.15fr;gap:26px;align-items:center}
+.am-copy h3{font-size:clamp(26px,3.4vw,38px);margin-bottom:14px}
+.am-copy p{color:var(--mute);font-size:16.5px;margin:0 0 20px;max-width:46ch}
+.am-list{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:9px}
+.am-list li{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--ink)}
+.am-list li i{flex:none;width:18px;height:18px;margin-top:2px;border-radius:50%;background:rgba(45,212,191,.16);
+  display:grid;place-items:center;color:var(--teal);font:700 10px var(--mono);font-style:normal}
+.am-panel{padding:16px;border-radius:18px}
+.am-head{display:flex;align-items:center;gap:10px;padding:0 2px 12px}
+.am-btn{margin-left:auto;font:700 10.5px var(--mono);letter-spacing:.1em;color:#08201c;background:linear-gradient(90deg,var(--teal),#67E8F9);
+  border:0;border-radius:9px;padding:8px 13px;cursor:pointer;box-shadow:0 8px 22px -8px rgba(45,212,191,.75)}
+.faders{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding:8px 2px 4px}
+.fader{display:grid;justify-items:center;gap:6px}
+.fader span{font:600 8.5px var(--mono);letter-spacing:.08em;color:var(--dim);text-transform:uppercase}
+.fader .tr{position:relative;width:100%;height:76px;border-radius:8px;background:var(--well);border:1px solid var(--line);overflow:hidden}
+.fader .tr b{position:absolute;bottom:0;left:0;right:0;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--teal),rgba(45,212,191,.18))}
+.fader .tr u{position:absolute;left:0;right:0;height:2px;background:rgba(255,255,255,.55);box-shadow:0 0 8px rgba(255,255,255,.4)}
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 2px 2px}
+.ab figure{position:relative;margin:0;border-radius:12px;background:var(--well);border:1px solid var(--line);overflow:hidden;height:86px}
+.ab figcaption{position:absolute;left:8px;top:6px;font:700 8.5px var(--mono);letter-spacing:.12em;color:var(--mute)}
+.ab .ok figcaption{color:var(--teal)}
+.ab svg{position:absolute;inset:16px 6px 6px;width:calc(100% - 12px);height:calc(100% - 22px)}
+@media (max-width:900px){.am{grid-template-columns:1fr}}
+
 /* ---------- pricing ---------- */
 .bill{display:inline-flex;gap:3px;background:var(--well);border:1px solid var(--line);border-radius:12px;padding:3px}
 .bill button{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);background:transparent;border:0;border-radius:9px;padding:9px 14px;cursor:pointer}
@@ -218,7 +243,7 @@ section{scroll-margin-top:90px}
     <span class="chip" id="clock">001.1.00&nbsp;&nbsp;0:00</span><span class="chip">128.0 BPM</span><span class="chip">4/4</span>
   </div>
   <span class="sp"></span>
-  <nav class="nav"><a href="#daw">DAW</a><a href="#pro">Подписка</a><a href="#pay">Оплата</a><a href="#download">Скачать</a><a href="#contacts">Контакты</a></nav>
+  <nav class="nav"><a href="#daw">DAW</a><a href="#automix">Auto Mix</a><a href="#pro">Подписка</a><a href="#pay">Оплата</a><a href="#download">Скачать</a><a href="#contacts">Контакты</a></nav>
   <button class="lang" id="lang" type="button" aria-label="Language">EN</button>
   <a class="btn" href="#download">Скачать</a>
 </div></div>
@@ -278,8 +303,52 @@ section{scroll-margin-top:90px}
   <p class="src mono">Все картинки на этой странице — один и тот же трек, собранный в SPOOK: Midnight Savannah Remake · 127.9 BPM · G minor.</p>
 </section>
 
+<section id="automix">
+  <div class="am">
+    <div class="am-copy">
+      <span class="cap">03 · AUTO MIX &amp; MASTER</span>
+      <h3 style="margin-top:10px">Сведение и мастеринг
+<br>одной кнопкой</h3>
+      <p>SPOOK сам выравнивает баланс дорожек, чистит частоты, ставит компрессию и готовит мастер под стриминг. Вам остаётся слушать.</p>
+      <ul class="am-list">
+        <li><i>✓</i> Баланс и панорама всех дорожек</li>
+        <li><i>✓</i> Эквалайзер и компрессия на каждой дорожке</li>
+        <li><i>✓</i> Мастер под Spotify, Apple Music, YouTube</li>
+        <li><i>✓</i> Отчёт: что и на сколько поправлено</li>
+      </ul>
+      <div class="cta"><a class="btn" href="#download">Попробовать Auto Mix</a><a class="btn ghost" href="#pay">Смотреть, как это работает</a></div>
+    </div>
+
+    <div class="dev am-panel" style="--c:var(--teal)">
+      <div class="am-head"><span class="led"></span><b style="font-size:14px">Auto Mix</b><span class="cap">MIDNIGHT SAVANNAH</span><button class="am-btn" type="button">СВЕСТИ</button></div>
+      <div class="faders">
+        <div class="fader"><div class="tr"><b style="height:38%"></b><u style="bottom:56%"></u></div><span>Kick</span></div>
+        <div class="fader"><div class="tr"><b style="height:62%"></b><u style="bottom:70%"></u></div><span>Bass</span></div>
+        <div class="fader"><div class="tr"><b style="height:30%"></b><u style="bottom:46%"></u></div><span>Snare</span></div>
+        <div class="fader"><div class="tr"><b style="height:74%"></b><u style="bottom:82%"></u></div><span>Vox</span></div>
+        <div class="fader"><div class="tr"><b style="height:52%"></b><u style="bottom:60%"></u></div><span>Keys</span></div>
+        <div class="fader"><div class="tr"><b style="height:24%"></b><u style="bottom:34%"></u></div><span>Pad</span></div>
+      </div>
+      <div class="ab">
+        <figure><figcaption>ДО</figcaption>
+          <svg viewBox="0 0 200 50" preserveAspectRatio="none">
+            <path d="M0 25 L10 14 L16 38 L26 8 L34 42 L44 18 L52 34 L64 12 L72 40 L82 20 L92 30 L104 10 L112 44 L122 22 L132 32 L144 14 L152 38 L162 18 L174 36 L182 24 L192 30 L200 25"
+                  fill="none" stroke="#8b8d99" stroke-width="1.6"/>
+          </svg>
+        </figure>
+        <figure class="ok"><figcaption>ПОСЛЕ</figcaption>
+          <svg viewBox="0 0 200 50" preserveAspectRatio="none">
+            <path d="M0 25 L12 20 L22 28 L32 18 L44 26 L56 19 L68 27 L80 18 L92 25 L104 20 L116 27 L128 19 L140 26 L152 20 L164 27 L176 21 L188 26 L200 24"
+                  fill="none" stroke="#2DD4BF" stroke-width="1.6"/>
+          </svg>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="pro">
-  <div class="sh"><div><span class="cap">03 · ПОДПИСКА</span><h2>Бесплатно навсегда. Pro — по желанию.</h2>
+  <div class="sh"><div><span class="cap">04 · ПОДПИСКА</span><h2>Бесплатно навсегда. Pro — по желанию.</h2>
   <p class="lead">Сама программа бесплатна без ограничений. Pro открывает SPOOK AI, авто-сведение и мастеринг, работу с референсом — на 30 дней после оплаты.</p></div></div>
 
   <div class="plans" id="plans">
@@ -297,7 +366,7 @@ section{scroll-margin-top:90px}
 </section>
 
 <section id="pay">
-  <div class="sh"><div><span class="cap">04 · ОПЛАТА</span><h2>Как оформить Pro</h2>
+  <div class="sh"><div><span class="cap">05 · ОПЛАТА</span><h2>Как оформить Pro</h2>
   <p class="lead">Оплата — прямо из программы. Вводить коды и ключи не нужно.</p></div></div>
   <div class="steps">
     <div class="dev step" style="--c:var(--violet)"><span class="n mono">01</span><b>Откройте Account</b><p>В SPOOK: Настройки → Account → «Get Pro».</p></div>
@@ -309,7 +378,7 @@ section{scroll-margin-top:90px}
 </section>
 
 <section id="download">
-  <div class="sh"><div><span class="cap">05 · СКАЧАТЬ</span><h2>Скачайте SPOOK</h2>
+  <div class="sh"><div><span class="cap">06 · СКАЧАТЬ</span><h2>Скачайте SPOOK</h2>
   <p class="lead">SPOOK сейчас в бета-тесте. Нажмите на вашу систему — начнётся загрузка установщика. Регистрация не нужна.</p>
   <p class="note">Если письмо не открылось, напишите на <a href="mailto:spook.daw@gmail.com">spook.daw@gmail.com</a>.</p></div></div>
   <div class="dl">
@@ -323,7 +392,7 @@ section{scroll-margin-top:90px}
 </section>
 
 <section id="contacts">
-  <div class="sh"><div><span class="cap">06 · КОНТАКТЫ</span><h2>Контакты</h2>
+  <div class="sh"><div><span class="cap">07 · КОНТАКТЫ</span><h2>Контакты</h2>
   <p class="lead">Вопросы об оплате, возврате и работе программы — пишите, отвечаем в течение 2 рабочих дней.</p></div></div>
   <div class="dev contact" style="--c:var(--pink)">
     <div><span class="cap">ПРОДАВЕЦ</span><b>Spook Sound</b><small class="req">Копач Денис Юрьевич · самозанятый</small><small class="req">ИНН 312330112462</small></div>
@@ -463,7 +532,9 @@ var V={
 /* ---------- RU / EN ---------- */
 (function(){
 var EN={"Бесплатно навсегда. Pro — по желанию.": "Free forever. Pro is optional.", "Сама программа бесплатна без ограничений. Pro открывает функции SPOOK AI и работу с референсом — на месяц после оплаты.": "The app itself is free, with no limits. Pro unlocks SPOOK AI and the reference tools for a month after payment.", "SPOOK Synth, Drum Rack и встроенные эффекты": "SPOOK Synth, Drum Rack and built-in effects", "Чистка вокала и вырезание тишины": "Vocal cleanup and strip silence", "SPOOK AI: генерация партий, четыре варианта на выбор": "SPOOK AI: part generation, four variations to choose from", "Референс-трек: тональность, темп, части, A/B": "Reference track: key, tempo, sections, A/B", "Sound Match: звук синта как в референсе": "Sound Match: a synth sound like the reference", "Оформить Pro": "Get Pro", "Генерация партий прямо в проекте: барабаны, бас, аккорды, мелодия, пиано, гитара, струнные — четыре варианта на выбор.": "Generate parts right in your project: drums, bass, chords, melody, piano, guitar, strings — four variations to choose from.", "Все картинки на этой странице — один и тот же трек, собранный в SPOOK: Midnight Savannah Remake · 127.9 BPM · G minor.": "Every picture on this page is the same track, made in SPOOK: Midnight Savannah Remake · 127.9 BPM · G minor.", "Настоящий проект, собранный в SPOOK: референс, Drum Rack, синтезаторы SPOOK Wave, FX и вокальные выкрики — 10 дорожек, 128 тактов.": "A real project made in SPOOK: a reference, Drum Rack, SPOOK Wave synths, FX and vocal shouts — 10 tracks, 128 bars.", "Откройте SPOOK AI и референс с подпиской Pro.": "Unlock SPOOK AI and the reference tools with Pro.", "Аккаунт нужен для подписки Pro.": "An account is needed for a Pro subscription.","Подписка":"Pricing","Скачать":"Download","Пусть звук":"Let your sound","оживёт.":"come alive.","SPOOK Studio — полноценная DAW, которая бесплатна. Подписка нужна, только если вам понадобятся дополнительные функции.":"SPOOK Studio is a full-featured DAW that’s free. A subscription is only for when you need extra features.","Скачать бесплатно":"Download for free","Что даёт подписка":"What a subscription adds","Сыграть аккорд":"Play a chord","Это настоящий мини-синт: покрутите ручки (потяните вверх или вниз) и нажмите «Сыграть аккорд».":"This is a real mini synth: turn the knobs (drag up or down) and press “Play a chord”.","Без регистрации":"No sign-up","01 · ИНТЕРФЕЙС":"01 · INTERFACE","02 · ВОЗМОЖНОСТИ":"02 · FEATURES","03 · ПОДПИСКА":"03 · PRICING","04 · СКАЧАТЬ":"04 · DOWNLOAD","Посмотрите, как это выглядит":"See how it looks","Настоящий проект, собранный в SPOOK: референс, Drum Rack, синтезаторы SPOOK Wave, FX и вокальные выкрики — 10 дорожек, 128 тактов.":"A finished project in SPOOK Studio: sample browser, colored tracks, audio and MIDI clips on one timeline.","Всё нужное для трека":"Everything you need for a track","Цветные дорожки, редактор MIDI и аудио, встроенные инструменты и эффекты. Работает без регистрации.":"Colored tracks, MIDI and audio editors, built-in instruments and effects. Works without sign-up.","Аудио и MIDI":"Audio and MIDI","Безлимитное число дорожек, петли, метроном, запись и экспорт.":"Unlimited tracks, looping, metronome, recording and export.","Гибридные дорожки":"Hybrid tracks","Аудио и MIDI на одной дорожке, чтобы не переключаться между режимами.":"Audio and MIDI on a single track, so you don’t have to switch modes.","Четыре осциллятора, фильтр, два LFO и эффекты. Кнопки Random и Match Sound помогут найти звук.":"Four oscillators, a filter, two LFOs and effects. The Random and Match Sound buttons help you find a sound.","48 пэдов, чок-группы, огибающая, фильтр и реверс. Перетащите свои семплы — и кит готов.":"48 pads, choke groups, envelope, filter and reverse. Drop in your samples and the kit is ready.","Помощник, который подсказывает идеи прямо в проекте. Барабаны, бас, аккорды, мелодия — четыре варианта на выбор.":"An assistant that suggests ideas right inside your project. Drums, bass, chords, melody — four variations to choose from.","Референс и сведение":"Reference and mixing","Положите любимый трек рядом со своим: тональность, темп, части и баланс — и сравнение одной кнопкой.":"Put a favourite track next to yours: key, tempo, sections and balance — and A/B with one button.","Бесплатно навсегда. Studio — по желанию.":"Free forever. Studio is optional.","Free закрывает основные задачи. Подписка добавляет функции для тех, кто работает каждый день.":"Free covers the essentials. A subscription adds features for those who work every day.","навсегда":"forever","в месяц":"per month","Безлимитные проекты и дорожки":"Unlimited projects and tracks","SPOOK Synth и встроенные эффекты":"SPOOK Synth and built-in effects","Поддержка сторонних VST":"Third-party VST support","Экспорт в WAV и MP3":"WAV and MP3 export","Всё из Free":"Everything in Free","Функции Studio (укажите свои)":"Studio features (add your own)","Облачное хранение проектов":"Cloud project storage","Экспорт в стемы":"Stem export","Ранний доступ к обновлениям":"Early access to updates","Попробовать Studio":"Try Studio","Всё из Studio":"Everything in Studio","Совместная работа над проектами":"Collaborate on projects","Расширенное облачное хранилище":"Expanded cloud storage","Приоритетная поддержка":"Priority support","Выбрать Pro":"Choose Pro","Скачайте SPOOK":"Download SPOOK","Установка занимает минуту. Регистрация не нужна.":"Installs in a minute. No sign-up needed.","Для Windows":"For Windows","Для macOS":"For macOS","Поддержка":"Support","Лицензия":"License","Контакты":"Contact","Ежемесячно":"Monthly","Ежегодно":"Yearly","списывается раз в год":"billed once a year","Регистрация":"Sign up","Войти":"Log in","Создайте аккаунт":"Create your account","С возвращением":"Welcome back","Аккаунт нужен для подписки Pro.":"An account is needed for Studio and Pro subscriptions.","Имя":"Name","Эл. почта":"Email","Пароль":"Password","Я согласен с условиями лицензии":"I agree to the license terms","Создать аккаунт":"Create account","Демо-режим: данные никуда не отправляются.":"Demo mode: nothing is sent anywhere.","Кабинет":"Account","Обзор":"Overview","Загрузки":"Downloads","Настройки":"Settings","Ваш тариф":"Your plan","Откройте SPOOK AI и референс с подпиской Pro.":"Get more with a Studio or Pro subscription.","Выбрать тариф":"Choose a plan","Скачайте SPOOK Studio для вашей системы.":"Download SPOOK Studio for your system.","Сохранить":"Save","Выйти из аккаунта":"Log out","Демо-режим: данные хранятся только в вашем браузере.":"Demo mode: data is stored only in your browser."};
-Object.assign(EN,{"SPOOK сейчас в бета-тесте. Нажмите на вашу систему — начнётся загрузка установщика. Регистрация не нужна.": "SPOOK is in beta. Click your system — an email opens, and we’ll send you the installer. No sign-up needed.", "Если письмо не открылось, напишите на": "If the email didn’t open, write to", "Настоящий проект, собранный в SPOOK: структура трека, барабаны и перкуссия, синтезаторы и MIDI-партии — всё на одном экране.": "A real project made in SPOOK: song structure, drums and percussion, synths and MIDI parts — all on one screen.", "Оплата": "Payment", "Контакты": "Contacts", "Скачать": "Download", "Сама программа бесплатна без ограничений. Pro открывает SPOOK AI, авто-сведение и мастеринг, работу с референсом — на 30 дней после оплаты.": "The app itself is free, with no limits. Pro unlocks SPOOK AI, auto mixing and mastering, and the reference tools — for 30 days after payment.", "Разделение трека на стемы": "Splitting a track into stems", "Распознавание аккордов": "Chord detection", "499 ₽": "$4.99", "за 30 дней": "for 30 days", "или $4.99 · €4.99": "or 499 ₽ · €4.99", "Mix Assistant: проверка сведения и исправления": "Mix Assistant: checks your mix and fixes it", "Мастер для стриминга: Spotify, Apple Music, YouTube": "Streaming master: Spotify, Apple Music, YouTube", "Как оформить Pro": "How to get Pro", "04 · ОПЛАТА": "04 · PAYMENT", "05 · СКАЧАТЬ": "05 · DOWNLOAD", "06 · КОНТАКТЫ": "06 · CONTACTS", "Оплата — прямо из программы. Вводить коды и ключи не нужно.": "Pay right from the app. No codes or keys to type.", "Откройте Account": "Open Account", "В SPOOK: Настройки → Account → «Get Pro».": "In SPOOK: Settings → Account → “Get Pro”.", "Оплатите": "Pay", "Откроется защищённая страница Robokassa: банковская карта, СБП и другие способы.": "A secure Robokassa page opens: bank card and other methods.", "Pro включится сам": "Pro turns on by itself", "Обычно в течение минуты после оплаты. Чек придёт на почту.": "Usually within a minute of paying. The receipt comes by email.", "Другой компьютер": "Another computer", "Перенесите Pro кодом восстановления из Account — до 3 компьютеров.": "Move Pro with the recovery code from Account — up to 3 computers.", "Услуга оказывается в электронном виде: доступ к функциям открывается в программе, физическая доставка не требуется. Оплата за 30 дней доступа, автоматических списаний нет. SPOOK в бета-версии и постоянно улучшается. Возврат — по условиям": "The service is delivered electronically: the features open in the app, nothing is shipped. You pay for 30 days of access, with no automatic charges. SPOOK is in beta and keeps improving. Refunds under the", "оферты": "public offer", "Вопросы об оплате, возврате и работе программы — пишите, отвечаем в течение 2 рабочих дней.": "Questions about payment, refunds or the app — write to us, we reply within 2 business days.", "ПРОДАВЕЦ": "SELLER", "Копач Денис Юрьевич · самозанятый": "Denis Kopach · self-employed (Russia)", "ИНН 312330112462": "Tax ID (INN) 312330112462", "ПОЧТА": "EMAIL", "ДОКУМЕНТЫ": "DOCUMENTS", "Публичная оферта": "Public offer", "Поддержка": "Support", "Оферта": "Offer", "Персональные данные": "Privacy"});
+Object.assign(EN,{"SPOOK сейчас в бета-тесте. Нажмите на вашу систему — начнётся загрузка установщика. Регистрация не нужна.": "SPOOK is in beta. Click your system — an email opens, and we’ll send you the installer. No sign-up needed.", "Если письмо не открылось, напишите на": "If the email didn’t open, write to", "Настоящий проект, собранный в SPOOK: структура трека, барабаны и перкуссия, синтезаторы и MIDI-партии — всё на одном экране.": "A real project made in SPOOK: song structure, drums and percussion, synths and MIDI parts — all on one screen.", "Оплата": "Payment", "Контакты": "Contacts", "Скачать": "Download", "Сама программа бесплатна без ограничений. Pro открывает SPOOK AI, авто-сведение и мастеринг, работу с референсом — на 30 дней после оплаты.": "The app itself is free, with no limits. Pro unlocks SPOOK AI, auto mixing and mastering, and the reference tools — for 30 days after payment.", "Разделение трека на стемы": "Splitting a track into stems", "Распознавание аккордов": "Chord detection", "499 ₽": "$4.99", "за 30 дней": "for 30 days", "или $4.99 · €4.99": "or 499 ₽ · €4.99", "Mix Assistant: проверка сведения и исправления": "Mix Assistant: checks your mix and fixes it", "Мастер для стриминга: Spotify, Apple Music, YouTube": "Streaming master: Spotify, Apple Music, YouTube", "Как оформить Pro": "How to get Pro", "04 · ОПЛАТА": "05 · PAYMENT", "05 · СКАЧАТЬ": "06 · DOWNLOAD", "06 · КОНТАКТЫ": "07 · CONTACTS", "Оплата — прямо из программы. Вводить коды и ключи не нужно.": "Pay right from the app. No codes or keys to type.", "Откройте Account": "Open Account", "В SPOOK: Настройки → Account → «Get Pro».": "In SPOOK: Settings → Account → “Get Pro”.", "Оплатите": "Pay", "Откроется защищённая страница Robokassa: банковская карта, СБП и другие способы.": "A secure Robokassa page opens: bank card and other methods.", "Pro включится сам": "Pro turns on by itself", "Обычно в течение минуты после оплаты. Чек придёт на почту.": "Usually within a minute of paying. The receipt comes by email.", "Другой компьютер": "Another computer", "Перенесите Pro кодом восстановления из Account — до 3 компьютеров.": "Move Pro with the recovery code from Account — up to 3 computers.", "Услуга оказывается в электронном виде: доступ к функциям открывается в программе, физическая доставка не требуется. Оплата за 30 дней доступа, автоматических списаний нет. SPOOK в бета-версии и постоянно улучшается. Возврат — по условиям": "The service is delivered electronically: the features open in the app, nothing is shipped. You pay for 30 days of access, with no automatic charges. SPOOK is in beta and keeps improving. Refunds under the", "оферты": "public offer", "Вопросы об оплате, возврате и работе программы — пишите, отвечаем в течение 2 рабочих дней.": "Questions about payment, refunds or the app — write to us, we reply within 2 business days.", "ПРОДАВЕЦ": "SELLER", "Копач Денис Юрьевич · самозанятый": "Denis Kopach · self-employed (Russia)", "ИНН 312330112462": "Tax ID (INN) 312330112462", "ПОЧТА": "EMAIL", "ДОКУМЕНТЫ": "DOCUMENTS", "Публичная оферта": "Public offer", "Поддержка": "Support", "Оферта": "Offer", "Персональные данные": "Privacy", "03 · AUTO MIX & MASTER": "03 · AUTO MIX & MASTER", "Сведение и мастеринг
+<br>одной кнопкой": "Mix and master
+<br>with one click", "SPOOK сам выравнивает баланс дорожек, чистит частоты, ставит компрессию и готовит мастер под стриминг. Вам остаётся слушать.": "SPOOK balances the tracks, cleans the frequencies, adds compression and preps the master for streaming. You just listen.", "Баланс и панорама всех дорожек": "Balance and panning for every track", "Эквалайзер и компрессия на каждой дорожке": "EQ and compression on each track", "Мастер под Spotify, Apple Music, YouTube": "Master for Spotify, Apple Music, YouTube", "Отчёт: что и на сколько поправлено": "Report: what was fixed and by how much", "Попробовать Auto Mix": "Try Auto Mix", "Смотреть, как это работает": "See how it works", "СВЕСТИ": "MIX", "ДО": "BEFORE", "ПОСЛЕ": "AFTER"});
 var TT={ru:document.title,en:"SPOOK Studio — free DAW"};
 var ALT={ru:"Интерфейс SPOOK Studio с готовым проектом",en:"SPOOK Studio interface with a finished project"};
 function usd(t){var m=t.match(/^([\d\s ]+)\s*₽$/);if(!m)return null;var n=parseInt(m[1].replace(/[\s ]/g,""),10);return n===0?"$0":"$"+(Math.ceil(n/85)-.01).toFixed(2)}
